@@ -10,7 +10,7 @@ describe("Issue create", () => {
       });
   });
 
-  it("Should create an issue and validate it successfully", () => {
+  it.skip("Should create an issue and validate it successfully", () => {
     cy.get('[data-testid="modal:issue-create"]').within(() => {
       cy.get('[data-testid="select:type"]').click();
       cy.get('[data-testid="select-option:Story"]').trigger("click");
@@ -45,7 +45,7 @@ describe("Issue create", () => {
       });
   });
 
-  it("Should validate title is required field if missing", () => {
+  it.skip("Should validate title is required field if missing", () => {
     //System finds modal for creating issue and does next steps inside of it
 
     cy.get('[data-testid="modal:issue-create"]').within(() => {
@@ -60,7 +60,7 @@ describe("Issue create", () => {
     });
   });
 
-  it.only("Create a Bug and validate it successfully", () => {
+  it("Create a Bug and validate it successfully", () => {
     // setting up intercept as alias, since system is slow and UI is rendered faster than receives responses which might lead to failed test
     cy.intercept("/currentUser").as("request");
 
@@ -115,7 +115,7 @@ describe("Issue create", () => {
       });
   });
 
-  it.only("Create a Task with randomizer values and validate it successfully", () => {
+  it("Create a Task with randomizer values and validate it successfully", () => {
     const randomTitle = faker.word.words(1);
     const randomDescription = faker.word.words(10);
 
