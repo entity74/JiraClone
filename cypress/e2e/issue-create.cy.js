@@ -88,7 +88,7 @@ describe("Issue create", () => {
     cy.contains("Issue has been successfully created.").should("be.visible");
 
     // cy.reload() removed to simulate endusers UX as much as possible
-    // Test will not fail here
+    // Test will not fail here but will take longer to execute
 
     cy.contains("Issue has been successfully created.").should("not.exist");
 
@@ -151,7 +151,7 @@ describe("Issue create", () => {
     cy.contains("Issue has been successfully created.").should("be.visible");
 
     // cy.reload() removed to simulate endusers UX as much as possible
-    // Test will not fail here
+    // Test will not fail here but will take longer to execute
 
     cy.contains("Issue has been successfully created.").should("not.exist");
 
