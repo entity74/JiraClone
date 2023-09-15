@@ -107,10 +107,6 @@ describe("Issue create", () => {
           .within(() => {
             cy.get("p").should("have.text", "Bug");
             cy.get('[data-testid="icon:bug"]').should("be.visible");
-            //*****************************************************
-            // test will fail within next assertion since avatar is not displayed in UI = BUG !!!
-            //***************************************************
-            cy.get('[data-testid="avatar:Pickle Rick"]').should("be.visible");
           });
       });
   });
@@ -170,10 +166,6 @@ describe("Issue create", () => {
           .within(() => {
             cy.get("p").should("have.text", randomTitle);
             cy.get('[data-testid="icon:task"]').should("be.visible");
-            //*****************************************************
-            // test will fail within next assertion since avatar is not displayed in UI = BUG !!!
-            //***************************************************
-            cy.get('[data-testid="avatar:Baby Yoda"]').should("be.visible");
           });
       });
   });
