@@ -10,7 +10,7 @@ describe("Issue create", () => {
       });
   });
 
-  it.skip("Should create an issue and validate it successfully", () => {
+  it("Should create an issue and validate it successfully", () => {
     cy.get('[data-testid="modal:issue-create"]').within(() => {
       cy.get('[data-testid="select:type"]').click();
       cy.get('[data-testid="select-option:Story"]').trigger("click");
@@ -45,7 +45,7 @@ describe("Issue create", () => {
       });
   });
 
-  it.skip("Should validate title is required field if missing", () => {
+  it("Should validate title is required field if missing", () => {
     //System finds modal for creating issue and does next steps inside of it
 
     cy.get('[data-testid="modal:issue-create"]').within(() => {
