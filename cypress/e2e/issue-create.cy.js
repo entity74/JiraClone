@@ -169,4 +169,25 @@ describe("Issue create", () => {
           });
       });
   });
+
+  it.only("Should verify unnecessary spaces removed correctly from issue Title on the board view ", () => {
+    const issueTitle = "  Hello new world !  ";
+    const randomDescription = "Mother flower";
+    cy.intercept("/currentUser").as("request");
+    cy.get('[data-testid="modal:issue-create"]').within(() => {
+      cy.get("@request").its("response.statusCode").should("eq", 200);
+      cy.get('input[name="title"]').type(issueTitle);
+      cy.get(".ql-editor").type(randomDescription);
+      cy.get('button[type="submit"]').click();
+    });
+    cy.get('[data-testid="modal:issue-create"]').should("not.exist");
+    cy.get("div[data-testid='board-list:backlog'] >a>div>p")
+      .its("length")
+      .should("eq", 5);
+    cy.get("div[data-testid='board-list:backlog'] >a>div>p")
+      .eq(0)
+      .should(($div) => {
+        expect($div.get(0).outerText).to.eq(issueTitle.trim());
+      });
+  });
 });
